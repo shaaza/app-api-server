@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from update_database import update_database
 from csv_file_backup import backup_csv
 
-crons = Blueprint('labs_graphs', __name__)
+crons = Blueprint('crons', __name__)
 
 sql_engine = create_engine('postgresql://ubuntu:electric123@data.engazeapp.com:5432/ubuntu')
 
