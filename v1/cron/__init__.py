@@ -12,12 +12,12 @@ sql_engine = create_engine('postgresql://ubuntu:electric123@data.engazeapp.com:5
 #### CRONS ############
 ########################################
 
-@blueprint.route('/crons/updateDatabase', methods=['POST'])
+@crons.route('/crons/updateDatabase', methods=['POST'])
 def updateDatabase():
     date_to_send = update_database(sql_engine)
     return jsonify(data_to_send)
 
-@blueprint.route('/crons/backupCSV/<string:folder>', methods=['POST'])
+@crons.route('/crons/backupCSV/<string:folder>', methods=['POST'])
 def backup_csv(folder):
     data_to_send = copy_file(folder)
     return jsonify(data_to_send)
