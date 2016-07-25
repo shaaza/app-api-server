@@ -16,7 +16,6 @@ def testKpis():
     data_to_send = test_kpis(sql_engine)
     return jsonify(data_to_send)
 
-
 @blueprint.route('/labs/data/denmark/hourlyCO2Emissions/all')
 def hourlyCO2Emissions():
     return co2_emissions_dk()
