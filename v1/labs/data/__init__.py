@@ -1,15 +1,15 @@
 from flask import Blueprint, jsonify
 from suggested_activities import list_suggested_activities
 
-app_data = Blueprint('app_data', __name__)
+blueprint = Blueprint('app_data', __name__)
 
-sql_engine = create_engine('postgresql://ubuntu:electric123@localhost:5432/ubuntu')
+sql_engine = create_engine('postgresql://ubuntu:electric123@data.engazeapp.com:5432/ubuntu')
 
-##################################
-#### DATA API for App ############
-##################################
+###################################
+#### DATA API for LABS ############
+###################################
 
-@app_data.route('/app/data/activities/<string:lang>/<int:instance_no>/<string:goals_csv>')
+@blueprint.route('/app/data/activities/<string:lang>/<int:instance_no>/<string:goals_csv>')
 def suggested_activities(lang, instance_no, goals_csv):
 	## ADD ERROR HANDLING HERE ##
     if goals_csv is None:

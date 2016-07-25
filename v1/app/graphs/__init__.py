@@ -1,7 +1,9 @@
 from flask import Blueprint, jsonify
 from sqlalchemy import create_engine
+
 from select_goal import select_goal
 from select_activity import select_activity
+from weekly_performance import weekly_performance
 
 blueprint = Blueprint('app_graphs', __name__)
 
@@ -19,4 +21,9 @@ def selectGoal(instance_no):
 @blueprint.route('/app/graphs/selectActivity/<int:instance_no>')
 def selectActivity(instance_no):
     data_to_send = { 'graphData': select_activity(instance_no, sql_engine) }
+    return jsonify(data_to_send)
+
+@blueprint.route('/app/graphs/weeklyPerformance/<int:instance_no>')
+def weeklyPerformance(instance_no):
+    data_to_send = weekly_performance(instance_no, sql_engine)
     return jsonify(data_to_send)

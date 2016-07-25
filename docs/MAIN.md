@@ -38,6 +38,10 @@ This resource does not have any attributes.
 		---
 			#### View [GET]
 
+		### Performance Graph Data [/app/graphs/performanceGraph/{instance_no}]
+		---
+			#### View [GET]
+
 /*----------------------------------------*/
 
 
@@ -48,15 +52,16 @@ This resource does not have any attributes.
 	### GROUP Data [/labs/data]
 	-------------------------------
 
+		### KPIs for Pilot Test [/labs/data/kpis]
+		---
+			#### View All [GET]	
+
 		### Danish CO2 Value [/labs/data/co2]
 		---
 			#### View All [GET]	
 
 			#### Update [POST]
 
-		### KPIs for Pilot Test [/labs/data/kpis]
-		---
-			#### View All [GET]	
 
 	### GROUP Graphs [/labs/graphs]
 	-------------------------------
