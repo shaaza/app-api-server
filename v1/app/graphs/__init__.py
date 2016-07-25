@@ -17,6 +17,6 @@ def selectGoal(instance_no):
     return jsonify(data_to_send)
 
 @blueprint.route('/app/graphs/selectActivity/<int:instance_no>')
-def selectGoal(instance_no):
+def selectActivity(instance_no):
     data_to_send = { 'graphData': select_activity(instance_no, sql_engine) }
     return jsonify(data_to_send)
