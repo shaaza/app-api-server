@@ -14,6 +14,7 @@ import calendar ### REQUIRED??
 #############################################
 def list_suggested_activities(goals, instance_num, lang, sqlengine):
     filename = os.path.join(os.path.dirname(__file__), 'json/activities_' + lang + '.json')
+    print filename
     with open(filename) as json_data:
         activities_data = json.load(json_data)
     last_day = (datetime.date.today() - datetime.timedelta(days = 3))
