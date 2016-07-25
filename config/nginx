@@ -1,0 +1,10 @@
+# located /etc/nginx/sites-available/onboarding
+server {
+    listen 80 default_server;
+    server_name _;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/scripts/onboarding/api.sock;
+    }
+}

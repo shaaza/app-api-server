@@ -1,0 +1,13 @@
+# located at /etc/init/engazeapi.conf
+
+description "Gunicorn application server running the API for onboarding tool"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+setuid ubuntu
+setgid www-data
+
+chdir /home/ubuntu/api/v1
+exec gunicorn --workers 3 --bind unix:api.sock -m 007 wsgi:app
