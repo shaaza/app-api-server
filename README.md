@@ -11,8 +11,8 @@ II. Error Logs
 --------------
 
 The error logs on the server are located at:
-a) Nginx: /var/log/nginx/error.log
-b) Gunicorn + Flask: /var/log/upstart/onboardingapi.log
+A. Nginx: /var/log/nginx/error.log
+B. Gunicorn + Flask: /var/log/upstart/onboardingapi.log
 
 Access logs (requests to server) are at /var/log/nginx/access.log
 
@@ -102,8 +102,6 @@ Configurations for calling gunicorn:
 
 B. nginx_config
 
-A. gunicorn_config
-
 Explanation and Configurable settings
 --> listen 80 default_server:
 sets the port number and makes this the default server, i.e. it handles all incoming requests to the IP. Otherwise, it is possible to specify server_name below and route that to a specific process etc.
@@ -111,7 +109,7 @@ sets the port number and makes this the default server, i.e. it handles all inco
 --> server_name _:
 as mentioned above, can be used to specify IP/domain of the server and process requests accordingly. _ is merely a mis-match character, nothing special about it.
 
---> proxy_pass http://unix:/home/ubuntu/scripts/onboarding/api.sock:
+--> proxy_pass http://unix:/home/ubuntu/api/v1/api.sock:
 This forwards all requests to 80 to the gunicorn .sock file setup at the above location by /etc/init/onboardingapi.conf
 
 
