@@ -18,7 +18,6 @@ This resource does not have any attributes.
 
 
 ## GROUP App
-/*----------------------------------------*/
 
 ### GROUP Data
 -------------------------------
@@ -137,16 +136,82 @@ Data for the graphs of the Select Activities stage of onboarding module.
 			}
 
 
-/*----------------------------------------*/
 
 
 
-## GROUP Data Lab
-/*----------------------------------------*/
+## GROUP Data Labs
+
 
 ### GROUP Data [/labs/data]
 -------------------------------
 
+### KPIs for Pilot Test [/labs/data/testKpis]
+---
+KPIs and pure number statistics for assessing the test generally.
+
++ Array with 6 elements, each containing 3-element (title, value, unit) arrays with data for:
+	+ Sign-ups
+	+ SMS Messages Sent
+	+ SMS Replies
+	+ Impact Points Awarded
+	+ CO2 Footprint Reduced
+	+ Consumption Reduced
+	+ Consumption Shifted
+
+#### View All [GET]
+
++ Response 200 (application/json)
+
+		+ Body
+				[
+				  ["Sign-ups", 52, ""], 
+				  ["SMS Messages Sent", 1099, ""],
+				  ["SMS Replies", 714, ""], 
+				  ["Impact Points Awarded", 3058, ""],
+				  ["CO2 Footprint Reduced", 28.468593439999999, "kg CO2-eq"], 
+				  ["Consumption Reduced", -135.77014617, "kWh"], 
+				  ["Consumption Shifted", 6.6433300000000006, "kWh"] 
+				]
+
+### Danish CO2 Value [/labs/data/hourlyCO2Emissions/denmark (/all)]
+---
+Hourly CO2 emissions of Denmark scraped from energinet.dk Flash page.
+
++ Array of arrays, each containing 4-elements:
+	+ id
+	+ Energinet.dk time: ISO8601 timestamp with timezone string
+	+ Local system time of recording: IS08601 timestamp without timezone string
+	+ CO2 Emissions value
+
+#### View All [GET]	[/all]
+
++ Response 200 (application/json)
+
+		+ Body
+				[
+					[1, "2016-04-30T18:08:00+00:00", "2016-05-01T00:00:00", 327.0], 
+					[2, "2016-04-30T23:08:00+00:00", "2016-05-01T01:00:00", 308.0], 
+					[3, "2016-05-01T00:08:00+00:00", "2016-05-01T02:00:00", 317.0],
+					...
+				] 
+
+#### Update [POST]
+
+
+### GROUP Graphs [/labs/graphs]
+-------------------------------
+### Changes in consumption due to activity[/labs/graphs/consumptionChange]
+---
+	### Morning [/labs/graphs/consumptionChange/morning]
+	---
+	Changes in consumption due to messages sent regarding Morning activity.
+
+	+
+		#### View All [GET]			
+
+	### Messages sent, replies, reply rate [/labs/graphs/messages/daywise]
+	---
+		#### View All [GET]	
 
 
 
@@ -154,9 +219,5 @@ Data for the graphs of the Select Activities stage of onboarding module.
 -------------------------------
 
 
-/*----------------------------------------*/
 
 ## GROUP Cron Scripts
-/*----------------------------------------*/
-
-/*----------------------------------------*/
