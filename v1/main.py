@@ -6,7 +6,7 @@ from app import data as app_data
 from app import graphs as app_graphs
 
 from labs import data as labs_data
-from labs import graphs as labs_graph
+from labs import graphs as labs_graphs
 
 # from cron import crons
 
