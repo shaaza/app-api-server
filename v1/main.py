@@ -8,11 +8,12 @@ from app import graphs as app_graphs
 from labs import data as labs_data
 from labs import graphs as labs_graphs
 
-# from cron import crons
+from cron import crons
 
 app = Flask(__name__)
 app.register_blueprint(app_data)
 app.register_blueprint(app_graphs)
 app.register_blueprint(labs_data)
 app.register_blueprint(labs_graphs)
+app.register_blueprint(crons)
 CORS(app)
