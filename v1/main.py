@@ -13,4 +13,5 @@ from labs import graphs as labs_graph
 app = Flask(__name__)
 app.register_blueprint(app_data)
 app.register_blueprint(app_graphs)
+app.register_blueprint(labs_data)
 CORS(app)
