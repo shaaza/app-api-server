@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify
 from suggested_activities import list_suggested_activities
+from sqlalchemy import create_engine
 
 blueprint = Blueprint('app_data', __name__)
 
