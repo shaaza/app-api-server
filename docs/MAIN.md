@@ -38,7 +38,7 @@ This resource does not have any attributes.
 		---
 			#### View [GET]
 
-		### Performance Graph Data [/app/graphs/performanceGraph/{instance_no}]
+		### Performance Graph Data [/app/graphs/weeklyPerformance/{instance_no}]
 		---
 			#### View [GET]
 
@@ -52,22 +52,24 @@ This resource does not have any attributes.
 	### GROUP Data [/labs/data]
 	-------------------------------
 
-		### KPIs for Pilot Test [/labs/data/kpis]
+		### KPIs for Pilot Test [/labs/data/testKpis]
 		---
 			#### View All [GET]	
 
-		### Danish CO2 Value [/labs/data/co2]
+		### Danish CO2 Value [/labs/data/hourlyCO2Emissions/denmark]
 		---
-			#### View All [GET]	
+			#### View All [GET]	[/all]
 
 			#### Update [POST]
 
 
 	### GROUP Graphs [/labs/graphs]
 	-------------------------------
-		### Changes in consumption due to activity[/labs/graphs/consumptionchange]
+		### Changes in consumption due to activity[/labs/graphs/consumptionChange]
 		---
-			#### View All [GET]			
+			### Morning [/labs/graphs/consumptionChange/morning]
+			---
+				#### View All [GET]			
 
 		### Messages sent, replies, reply rate [/labs/graphs/messages/all]
 		---
