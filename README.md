@@ -124,4 +124,6 @@ http://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flas
 RESTful APIs:
 http://www.andrewhavens.com/posts/20/beginners-guide-to-creating-a-rest-api/
 
+Extra Setups:
+Postgres: http://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
 
