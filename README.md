@@ -1,19 +1,11 @@
 I. File list
 ------------
 
-api.py 				The Flask application that handles the routes and calling the respective functions form onboarding.py.
-onboarding.py 		Business logic: contains the scripts for processing requests and returning data. 
-wsgi.py 			Gunicorn uses this script to bind to the app. Seperate wsgi.py file allows for different configurations.
-activities.json 	Contains the activity list used by onboarding.py
-gunicorn_config		Contains the config file for gunicorn Upstart (start-up). Located at /etc/init/onboardingapi.conf
-nginx_config		Contains the nginx config file. Located /etc/nginx/sites-available/onboarding (symlinked to sites-enabled too)
-update_server.sh 	Running this script with private key location as argument updates files to AWS EC2 server.
-
-Note for making changes:
-
-For adding/chaning/removing routes, only change api.py.
-For adding/changing/removing helper functions for handlers of each request, change onboarding.py, and import the function in api.py
-
+* the v1 folder contains the API, with wsgi.py wrapping main.py via Gunicorn. main.py is the core starter file.
+* the config folder contains the server setup configurations.
+* the docs folder contains the documentation, with details of each route/group separated into separate files/folders.
+* API-REFERENCE.md contains the full compiled version of all the docs (less readable than the docs folder)
+* update_server.sh is an updating tool (deprecated, use git now)
 
 II. Error Logs
 --------------
