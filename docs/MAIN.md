@@ -71,7 +71,7 @@ This resource does not have any attributes.
 			---
 				#### View All [GET]			
 
-		### Messages sent, replies, reply rate [/labs/graphs/messages/all]
+		### Messages sent, replies, reply rate [/labs/graphs/messages/daywise]
 		---
 			#### View All [GET]	
 
