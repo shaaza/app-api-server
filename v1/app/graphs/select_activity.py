@@ -11,7 +11,7 @@ def select_activity(instance_num, sqlengine):
     first = datetime.datetime.combine(first_day, datetime.time(0,0,0))
     ###Fetch similar homes
     query = 'SELECT persons, hsize, htype FROM attr WHERE inst = {0};'.format(instance_num)
-    details_df = pandas.read_sql_query(query,con=engine)
+    details_df = pandas.read_sql_query(query,con=sqlengine)
     details = list(details_df.iloc[0])
     query = 'SELECT inst FROM attr WHERE persons = \'{0}\' AND hsize = \'{1}\' AND htype = \'{2}\';'.format(details[0], details[1], details[2].encode('utf8'))
     inst_df = pandas.read_sql_query(query,con=engine)
