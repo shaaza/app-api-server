@@ -13,7 +13,7 @@ import calendar ### REQUIRED??
 #### RETURN ACTIVITIES BASED ON GOALS #######
 #############################################
 def list_suggested_activities(goals, instance_num, lang, sqlengine):
-    filename = "json/activities_" + lang + ".json"
+    filename = os.path.join(os.path.dirname(__file__), '/json/activities_' + lang + '.json')
     with open(filename) as json_data:
         activities_data = json.load(json_data)
     last_day = (datetime.date.today() - datetime.timedelta(days = 3))
@@ -21,7 +21,7 @@ def list_suggested_activities(goals, instance_num, lang, sqlengine):
     first_day = last_day - datetime.timedelta(days = 30)
     first = datetime.datetime.combine(first_day, datetime.time(0,0,0))
     goals = map(int,goals)
-    rank_df = interval_specific_activity_ranking(instance_num, lang)
+    rank_df = interval_specific_activity_ranking(instance_num, lang, sqlengine)
     intervalspecific = list(rank_df.activity)
     appliancespecific = [x['title'] for x in activities_data if x['appliance_specific'] == 1]
     speacialdays = [x['title'] for x in activities_data if x['special_days'] == 1]
