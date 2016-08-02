@@ -28,7 +28,7 @@ def suggested_activities(lang, instance_no, goals_csv):
 #######################################################
 
 @blueprint.route('/activities/<string:lang>/<int:instance_num>/<string:goal_csv>')
-def suggested_activities2(lang, instance_no, goals_csv):
+def suggested_activities2(lang, instance_num, goal_csv):
 	## ADD ERROR HANDLING HERE ##
     if goals_csv is None:
         goals_csv = "1,1,1"
