@@ -61,6 +61,7 @@ def morning_change(sqlengine):
         hour_consumption_after_value = messages_df.apply(return_hour_consumption_after, axis = 1, kwh_df = kwh_df, hour = hour).sum()
         hourly_consumption_after.append(round(hour_consumption_after_value,1))
     c3_data = { 'columns': [hourly_consumption_before, hourly_consumption_after] }
+    print "Before return"
     return c3_data
 
 
