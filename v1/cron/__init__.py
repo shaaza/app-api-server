@@ -30,11 +30,11 @@ def backup_csv(folder):
 #######################################################
 
 @crons.route('/updateData', methods=['POST'])
-def updateDatabase():
+def updateDatabase2():
     date_to_send = update_database(sql_engine)
     return jsonify(data_to_send)
 
 @crons.route('/backupCSV/<string:folder>', methods=['POST'])
-def backup_csv(folder):
+def backup_csv2(folder):
     data_to_send = copy_file(folder)
     return jsonify(data_to_send)

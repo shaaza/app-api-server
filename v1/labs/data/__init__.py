@@ -33,16 +33,16 @@ def updateHourlyCO2Emissions():
 
 
 @blueprint.route('/stats/data')
-def testKpis():
+def testKpis2():
     data_to_send = test_kpis(sql_engine)
     return jsonify(data_to_send)
 
 @blueprint.route('/hourlyCO2/all')
-def hourlyCO2Emissions():
+def hourlyCO2Emissions2():
     return co2_emissions_dk()
 
 @blueprint.route('/hourlyCO2', methods=['POST'])
-def updateHourlyCO2Emissions():
+def updateHourlyCO2Emissions2():
     data = request.get_json()
     update_co2_emissions_dk(data['value'], data['time'])
     return "Success"
