@@ -13,10 +13,10 @@ sql_engine = create_engine('postgresql://ubuntu:electric123@data.engazeapp.com:5
 
 @blueprint.route('/labs/graphs/consumptionChange/morning')
 def morning_compare():
-	print "Inside route handler."
-    data_to_send = morning_change(sql_engine)
-    print "After call, in handler"
-    return jsonify(data_to_send)
+	print "Inside route handler"
+	data_to_send = morning_change(sql_engine)
+	print "After call, in handler"
+	return jsonify(data_to_send)
 
 @blueprint.route('/labs/graphs/messages/daywise')
 def messages_data():
