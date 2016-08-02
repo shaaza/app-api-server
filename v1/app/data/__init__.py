@@ -33,7 +33,7 @@ def suggested_activities2(lang, instance_num, goal_csv):
     if goal_csv is None:
         goal_csv = "1,1,1"
     ## ADD ERROR HANDLING HERE ##
-    goal = goals_csv.split(",")
-    activities  = list_suggested_activities(goal, instance_no, lang, sql_engine)
+    goal = goal_csv.split(",")
+    activities  = list_suggested_activities(goal, instance_num, lang, sql_engine)
     data_to_send = { 'activities': activities }
     return jsonify(data_to_send)
