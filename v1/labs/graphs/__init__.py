@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from sqlalchemy import create_engine
-from consumption_change import morning_change
+from consumption_change_morning import morning_change
 from daywise_messages import daywise_messages
 
 blueprint = Blueprint('labs_graphs', __name__)

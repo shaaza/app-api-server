@@ -20,3 +20,9 @@ def suggested_activities(lang, instance_no, goals_csv):
     activities  = list_suggested_activities(goal, instance_no, lang, sql_engine)
     data_to_send = { 'activities': activities }
     return jsonify(data_to_send)
+
+
+
+##################################
+#### OLD ROUTES FOR BACKWARD COMPATIBILITY ############
+##################################
