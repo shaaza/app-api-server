@@ -21,3 +21,20 @@ def updateDatabase():
 def backup_csv(folder):
     data_to_send = copy_file(folder)
     return jsonify(data_to_send)
+
+
+
+
+#######################################################
+#### OLD ROUTES FOR BACKWARD COMPATIBILITY ############
+#######################################################
+
+@crons.route('/updateData', methods=['POST'])
+def updateDatabase():
+    date_to_send = update_database(sql_engine)
+    return jsonify(data_to_send)
+
+@crons.route('/backupCSV/<string:folder>', methods=['POST'])
+def backup_csv(folder):
+    data_to_send = copy_file(folder)
+    return jsonify(data_to_send)

@@ -21,3 +21,20 @@ def morning_compare():
 def messages_data():
     data_to_send = daywise_messages()
     return jsonify(data_to_send)
+
+
+
+#######################################################
+#### OLD ROUTES FOR BACKWARD COMPATIBILITY ############
+#######################################################
+
+@blueprint.route('/stats/graphs/morningcompare')
+def morning_compare():
+	data_to_send = morning_change(sql_engine)
+	print data_to_send
+	return jsonify(data_to_send)
+
+@blueprint.route('/stats/messagereplies/day')
+def messages_data():
+    data_to_send = daywise_messages()
+    return jsonify(data_to_send)

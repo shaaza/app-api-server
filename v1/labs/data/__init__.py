@@ -25,3 +25,24 @@ def updateHourlyCO2Emissions():
     data = request.get_json()
     update_co2_emissions_dk(data['value'], data['time'])
     return "Success"
+
+
+#######################################################
+#### OLD ROUTES FOR BACKWARD COMPATIBILITY ############
+#######################################################
+
+
+@blueprint.route('/stats/data')
+def testKpis():
+    data_to_send = test_kpis(sql_engine)
+    return jsonify(data_to_send)
+
+@blueprint.route('/hourlyCO2/all')
+def hourlyCO2Emissions():
+    return co2_emissions_dk()
+
+@blueprint.route('/hourlyCO2', methods=['POST'])
+def updateHourlyCO2Emissions():
+    data = request.get_json()
+    update_co2_emissions_dk(data['value'], data['time'])
+    return "Success"

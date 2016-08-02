@@ -23,6 +23,17 @@ def suggested_activities(lang, instance_no, goals_csv):
 
 
 
-##################################
+#######################################################
 #### OLD ROUTES FOR BACKWARD COMPATIBILITY ############
-##################################
+#######################################################
+
+@blueprint.route('/activities/<string:lang>/<int:instance_num>/<string:goal_csv>')
+def suggested_activities(lang, instance_no, goals_csv):
+	## ADD ERROR HANDLING HERE ##
+    if goals_csv is None:
+        goals_csv = "1,1,1"
+    ## ADD ERROR HANDLING HERE ##
+    goal = goals_csv.split(",")
+    activities  = list_suggested_activities(goal, instance_no, lang, sql_engine)
+    data_to_send = { 'activities': activities }
+    return jsonify(data_to_send)
