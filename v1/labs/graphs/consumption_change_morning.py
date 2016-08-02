@@ -55,11 +55,15 @@ def morning_change(sqlengine):
     print "after query"
     hourly_consumption_before = ['before']
     hourly_consumption_after = ['after']
+    print "break 1"
     for hour in range(5, 12):
+        print "break in loop"
         hour_consumption_before_value = messages_df.apply(return_hour_consumption_before, axis = 1, kwh_df = kwh_df, hour = hour).sum()
         hourly_consumption_before.append(round(hour_consumption_before_value,1))
         hour_consumption_after_value = messages_df.apply(return_hour_consumption_after, axis = 1, kwh_df = kwh_df, hour = hour).sum()
         hourly_consumption_after.append(round(hour_consumption_after_value,1))
+        print "end of loop"
+    print "break 2"
     c3_data = { 'columns': [hourly_consumption_before, hourly_consumption_after] }
     print "Before return"
     return c3_data
