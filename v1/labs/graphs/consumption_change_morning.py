@@ -7,6 +7,32 @@ import json
 from math import ceil
 
 
+
+def return_pledge_type_id(row):
+    pledge_type_id = int(row['message_text']['pledge_type_id'])
+    return pledge_type_id
+
+def return_message_reply(row):
+    if row['reply_yes_no_noreply'] == None:
+        reply = 0
+    else:
+        reply = int(row['reply_yes_no_noreply'])
+    return reply
+
+def return_hour_consumption_after(row, kwh_df, hour):
+    user_inst = row['user_inst']
+    date = row['date']
+    hour_consumption_after = kwh_df[(kwh_df.inst == user_inst) & (kwh_df.date.dt.date == date) & (kwh_df.date.dt.hour == hour)].iloc[0][3]
+    return hour_consumption_after
+
+def return_hour_consumption_before(row, kwh_df, hour):
+    user_inst = row['user_inst']
+    date = row['date']
+    weekday = row['date'].weekday()
+    hour_consumption_before = kwh_df[(kwh_df.inst == user_inst) & (kwh_df.date.dt.date != date) & (kwh_df.date.dt.hour == hour) & (kwh_df.date.dt.weekday == weekday)].kwh.mean()
+    return hour_consumption_before
+
+    
 def morning_change(sqlengine):
     #### DATE AND TIME SETTINGS #################
     print "Inside function"
@@ -68,30 +94,3 @@ def morning_change(sqlengine):
     print "Before return"
     return c3_data
 
-
-# HELPERS
-
-
-def return_pledge_type_id(row):
-    pledge_type_id = int(row['message_text']['pledge_type_id'])
-    return pledge_type_id
-
-def return_message_reply(row):
-    if row['reply_yes_no_noreply'] == None:
-        reply = 0
-    else:
-        reply = int(row['reply_yes_no_noreply'])
-    return reply
-
-def return_hour_consumption_after(row, kwh_df, hour):
-    user_inst = row['user_inst']
-    date = row['date']
-    hour_consumption_after = kwh_df[(kwh_df.inst == user_inst) & (kwh_df.date.dt.date == date) & (kwh_df.date.dt.hour == hour)].iloc[0][3]
-    return hour_consumption_after
-
-def return_hour_consumption_before(row, kwh_df, hour):
-    user_inst = row['user_inst']
-    date = row['date']
-    weekday = row['date'].weekday()
-    hour_consumption_before = kwh_df[(kwh_df.inst == user_inst) & (kwh_df.date.dt.date != date) & (kwh_df.date.dt.hour == hour) & (kwh_df.date.dt.weekday == weekday)].kwh.mean()
-    return hour_consumption_before
