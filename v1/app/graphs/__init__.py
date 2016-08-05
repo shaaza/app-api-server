@@ -7,7 +7,7 @@ from weekly_performance import weekly_performance
 
 blueprint = Blueprint('app_graphs', __name__)
 
-sql_engine = create_engine('postgresql://ubuntu:electric123@data.engazeapp.com:5432/ubuntu')
+sql_engine = create_engine('postgresql://ubuntu:electric123@localhost:5432/ubuntu')
 
 ########################################
 #### GRAPH-DATA API for App ############

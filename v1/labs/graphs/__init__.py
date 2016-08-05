@@ -5,7 +5,7 @@ from daywise_messages import daywise_messages
 
 blueprint = Blueprint('labs_graphs', __name__)
 
-sql_engine = create_engine('postgresql://ubuntu:electric123@data.engazeapp.com:5432/ubuntu')
+sql_engine = create_engine('postgresql://ubuntu:electric123@localhost:5432/ubuntu')
 
 ########################################
 #### GRAPH-DATA API for Labs ############

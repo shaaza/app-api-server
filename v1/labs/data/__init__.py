@@ -5,7 +5,7 @@ from hourly_co2_denmark import co2_emissions_dk, update_co2_emissions_dk
 
 blueprint = Blueprint('labs_data', __name__)
 
-sql_engine = create_engine('postgresql://ubuntu:electric123@data.engazeapp.com:5432/ubuntu')
+sql_engine = create_engine('postgresql://ubuntu:electric123@localhost:5432/ubuntu')
 
 ###################################
 #### DATA API for LABS ############

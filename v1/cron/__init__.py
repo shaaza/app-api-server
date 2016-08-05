@@ -6,7 +6,7 @@ from csv_file_backup import backup_csv
 
 crons = Blueprint('crons', __name__)
 
-sql_engine = create_engine('postgresql://ubuntu:electric123@data.engazeapp.com:5432/ubuntu')
+sql_engine = create_engine('postgresql://ubuntu:electric123@localhost:5432/ubuntu')
 
 ########################################
 #### CRONS ############
