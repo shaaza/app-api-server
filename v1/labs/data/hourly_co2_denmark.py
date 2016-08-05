@@ -15,7 +15,7 @@ def update_co2_emissions_dk(co2val, timestmp):
 	return True
 
 def co2_emissions_dk():
-	conn = psycopg2.connect(dbname="ubuntu", user="ubuntu", host="data.engazeapp.com", password="electric123");
+	conn = psycopg2.connect(dbname="ubuntu", user="ubuntu", host="localhost", password="electric123");
 	cursor = conn.cursor()
 	cursor.execute('SELECT id, reading_time, created_at, value FROM co2_val_dk')
 	conn.commit()
