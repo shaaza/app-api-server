@@ -1,4 +1,11 @@
-I. File list
+## Description
+This API server was built as a prototype/MVP of an analytics/application server for an energy analytics app, in a very short period of time. This was tuned and tested for a couple of months with around ~3000 users, in Denmark.
+
+The front-end was in Angular 1 + PHP/Laravel (not in this repo). We used a PostgreSQL database along with this API server.
+
+Some of the code for the analytics was later to ported to C, and keeping this in mind, we've used an extremely imperative style in various place to make the transition easier.
+
+### Directory Structure
 ------------
 
 * the v1 folder contains the API, with wsgi.py wrapping main.py via Gunicorn. main.py is the core starter file.
@@ -7,7 +14,7 @@ I. File list
 * API-REFERENCE.md contains the full compiled version of all the docs (less readable than the docs folder)
 * update_server.sh is an updating tool (deprecated, use git now)
 
-II. Error Logs
+### Logs
 --------------
 
 The error logs on the server are located at:
@@ -16,11 +23,11 @@ B. Gunicorn + Flask: /var/log/upstart/onboardingapi.log
 
 Access logs (requests to server) are at /var/log/nginx/access.log
 
-III. Updating Server
+### Deploying New Code
 --------------------
 
 After making changes to any of the files, the files can be updated by running:
-		 
+
 		 ./update_server.sh "/path/to/private/key.pem"
 
 This will replace all the files with new edited versions.
@@ -31,7 +38,7 @@ To reload the Gunicorn server after updating the files, run:
 Note that this will upload AND reload the server. Reload the server only during maintenance, as any connected clients will be affected.
 
 
-IV. Installation Process
+### Installation
 ------------------------
 
 The process is almost identical to the guide at: https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04, except for the use of virtualenv and filename conventions.
@@ -73,7 +80,7 @@ Note: Default server can be re-enabled by creating a symlink of the config file 
 
 
 
-IV. Changing Configuration and Settings
+IV. Configuration
 -----------------------------------------
 Make changes to wsgi.py for any Flask deployment configuration.
 Make changes to nginx_config or gunicorn_config as required and copy to their locations mentioned at the top of the file, and restart to see changes.
@@ -106,15 +113,17 @@ Explanation and Configurable settings
 --> listen 80 default_server:
 sets the port number and makes this the default server, i.e. it handles all incoming requests to the IP. Otherwise, it is possible to specify server_name below and route that to a specific process etc.
 
---> server_name _:
+--> server_name _ :
 as mentioned above, can be used to specify IP/domain of the server and process requests accordingly. _ is merely a mis-match character, nothing special about it.
 
 --> proxy_pass http://unix:/home/ubuntu/api/v1/api.sock:
 This forwards all requests to 80 to the gunicorn .sock file setup at the above location by /etc/init/onboardingapi.conf
 
 
-IV. How it works (Reading)
+### Reading
 -----------------------------------------
+Here a few articles on how this setup works.
+
 How gunicorn and nginx works:
 https://www.quora.com/What-are-the-differences-between-nginx-and-gunicorn
 
@@ -126,4 +135,3 @@ http://www.andrewhavens.com/posts/20/beginners-guide-to-creating-a-rest-api/
 
 Extra Setups:
 Postgres: http://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
-
