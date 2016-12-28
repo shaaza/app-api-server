@@ -23,7 +23,7 @@ B. Gunicorn + Flask: /var/log/upstart/onboardingapi.log
 
 Access logs (requests to server) are at /var/log/nginx/access.log
 
-### Deploying New Code
+## Deploying Code
 --------------------
 
 After making changes to any of the files, the files can be updated by running:
@@ -38,7 +38,7 @@ To reload the Gunicorn server after updating the files, run:
 Note that this will upload AND reload the server. Reload the server only during maintenance, as any connected clients will be affected.
 
 
-### Installation
+## Installation
 ------------------------
 
 The process is almost identical to the guide at: https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-14-04, except for the use of virtualenv and filename conventions.
@@ -80,7 +80,7 @@ Note: Default server can be re-enabled by creating a symlink of the config file 
 
 
 
-IV. Configuration
+## Configuration
 -----------------------------------------
 Make changes to wsgi.py for any Flask deployment configuration.
 Make changes to nginx_config or gunicorn_config as required and copy to their locations mentioned at the top of the file, and restart to see changes.
@@ -120,7 +120,7 @@ as mentioned above, can be used to specify IP/domain of the server and process r
 This forwards all requests to 80 to the gunicorn .sock file setup at the above location by /etc/init/onboardingapi.conf
 
 
-### Reading
+## Reading
 -----------------------------------------
 Here a few articles on how this setup works.
 
