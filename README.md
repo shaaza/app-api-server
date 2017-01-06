@@ -135,3 +135,9 @@ http://www.andrewhavens.com/posts/20/beginners-guide-to-creating-a-rest-api/
 
 Extra Setups:
 Postgres: http://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
+
+## Contributors
+-----------------------------------------
+
+* Abhit Patil ([@Abhit03](https://github.com/Abhit03)
+* Shaaz Ahmed ([@shaaza](https://github.com/shaaza))
